@@ -30,9 +30,17 @@ def get_activity_polylines(before=None, after=None, limit=None):
         A list of polyline strings
     """
     client = create_client()
-    activities = client.get_activities(before=before, after=after, limit=limit)
-    decoded_polylines = [
-        polyline.decode(activity.map.summary_polyline)
-        for activity in activities if activity.map.summary_polyline
-    ]
-    return decoded_polylines
+    try:
+        activities = client.get_activities(
+            before=before, after=after, limit=limit
+        )
+        decoded_polylines = [
+            polyline.decode(activity.map.summary_polyline)
+            for activity in activities if activity.map.summary_polyline
+        ]
+        return decoded_polylines
+    except stravalib.exc.AccessUnauthorized:
+        print(
+            "Invalid Strava access token. Set Strava access token " +
+            "in strava_config.py."
+        )

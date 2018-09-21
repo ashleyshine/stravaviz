@@ -33,6 +33,6 @@ def get_activity_polylines(before=None, after=None, limit=None):
     activities = client.get_activities(before=before, after=after, limit=limit)
     decoded_polylines = [
         polyline.decode(activity.map.summary_polyline)
-        for activity in activities
+        for activity in activities if activity.map.summary_polyline
     ]
     return decoded_polylines

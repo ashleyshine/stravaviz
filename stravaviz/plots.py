@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 from collections import namedtuple
 
-from src.get_strava_data import get_activity_polylines
+from stravaviz.get_strava_data import get_activity_polylines
 
 
 def create_heatmap(activities={}, style='black', color='deepskyblue',

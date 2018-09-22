@@ -3,7 +3,7 @@ import logging
 import polyline
 import stravalib
 
-import src.strava_config as strava_config
+import stravaviz.strava_config as strava_config
 
 # Raise logger level since Strava frequently changes the structure of
 # their models, resulting in (relatively harmless) warnings.

@@ -1,6 +1,6 @@
 import folium
 
-from src.get_strava_data import get_activity_polylines
+from stravaviz.get_strava_data import get_activity_polylines
 
 
 def create_map(center, style):

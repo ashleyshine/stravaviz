@@ -7,12 +7,12 @@ from collections import namedtuple
 from src.get_strava_data import get_activity_polylines
 
 
-def create_heatmap(activity_params={}, style='black', color='deepskyblue',
+def create_heatmap(activities={}, style='black', color='deepskyblue',
                    save=False, img_filename='heatmap.png'):
     """Creates static heatmap with activity polylines.
 
     Args:
-        activity_params (dict): Optional parameters for retrieved
+        activities (dict): Optional parameters for retrieved
             activities. Format below. Default plots all activities.
             {
                 'after': 'YYYY-MM-DD',
@@ -27,7 +27,7 @@ def create_heatmap(activity_params={}, style='black', color='deepskyblue',
     Returns:
          None
     """
-    polylines = get_activity_polylines(**activity_params)
+    polylines = get_activity_polylines(**activities)
     latitude, longitude = extract_lat_long(polylines)
 
     fig, ax = plt.subplots(figsize=(24, 18))
@@ -60,12 +60,12 @@ def extract_lat_long(polylines):
     return Lat_Long(latitude, longitude)
 
 
-def create_facet_plot(activity_params={}, style='white', color='black',
+def create_facet_plot(activities={}, style='white', color='black',
                       save=False, img_filename='facet_plot.png'):
     """Creates facet plot with individual activities.
 
     Args:
-        activity_params (dict): Optional parameters for retrieved
+        activities (dict): Optional parameters for retrieved
             activities. Format below. Default plots all activities.
             {
                 'after': 'YYYY-MM-DD',
@@ -80,7 +80,7 @@ def create_facet_plot(activity_params={}, style='white', color='black',
     Returns:
         None
     """
-    polylines = get_activity_polylines(**activity_params)
+    polylines = get_activity_polylines(**activities)
     sq_dim = facet_plot_dimensions(len(polylines))
 
     fig, axes = plt.subplots(figsize=(24, 24), nrows=sq_dim, ncols=sq_dim)
@@ -91,7 +91,7 @@ def create_facet_plot(activity_params={}, style='white', color='black',
         for col in row:
             try:
                 lat, lon = zip(*polyline_iterator.__next__())
-                col.plot(lat, lon, color='black', lw=0.7)
+                col.plot(lat, lon, color=color)
             except StopIteration:
                 pass
             col.axis('off')

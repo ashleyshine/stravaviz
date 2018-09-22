@@ -11,7 +11,7 @@ def create_map(center, style):
         style (str): Style of map - either 'dark' or 'light'.
 
     Returns:
-        folium.Map object
+        folium.Map: Base map.
     """
     tile_styles = {
         'dark': 'Cartodb dark_matter',
@@ -21,7 +21,7 @@ def create_map(center, style):
     strava_map = folium.Map(
         location=center,
         tiles=tile_styles[style],
-        zoom_start=12
+        zoom_start=13
     )
 
     return strava_map

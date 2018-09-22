@@ -20,14 +20,15 @@ def get_activity_polylines(before=None, after=None, limit=None):
     """Gets activity polylines for user.
 
     Args:
-        before (datetime or str): Retrieve activities before this date.
-            Format YYYY-MM-DD.
-        after (datetime or str): Retrieve activities after this date.
-            Format YYYY-MM-DD.
-        limit (int): Maximum number of activities to return.
+        before (datetime or str): Optional. Retrieve activities before
+            this date. Format YYYY-MM-DD.
+        after (datetime or str): Optional. Retrieve activities after this
+            date. Format YYYY-MM-DD.
+        limit (int): Optional. Maximum number of activities to return.
 
     Returns:
-        A list of polyline strings
+        A list of polylines, where each polyline is a list of points
+        in the form of (lat, long) representing an activity.
     """
     client = create_client()
     try:
@@ -38,6 +39,7 @@ def get_activity_polylines(before=None, after=None, limit=None):
             polyline.decode(activity.map.summary_polyline)
             for activity in activities if activity.map.summary_polyline
         ]
+
         return decoded_polylines
     except stravalib.exc.AccessUnauthorized:
         print(

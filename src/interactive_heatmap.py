@@ -23,31 +23,29 @@ def create_map(center, style):
         tiles=tile_styles[style],
         zoom_start=12
     )
+
     return strava_map
 
 
-def add_polyline(folium_map, polyline, color='blue'):
+def add_polyline(folium_map, polyline, color='deepskyblue'):
     """Adds polyline to base map.
 
     Args:
         folium_map (folium.Map): Map to add polyline to.
         polyline (str): Decoded polyline string.
-        color (str): Color of polyline.
+        color (str): Optional, color of polyline.
 
     Returns:
         folium.Map object.
     """
-    line_colors = {
-        'blue': 'deepskyblue',
-        'red': 'orangered'
-    }
 
     polyline = folium.PolyLine(
         locations=polyline,
         weight=0.5,
         opacity=0.4,
-        color=line_colors[color]
+        color=color
     ).add_to(folium_map)
+
     return folium_map
 
 
@@ -56,8 +54,9 @@ def create_heatmap(center, style='dark', color='blue', activity_params={}):
 
     Args:
         center ([lat, long]): Coordinates for center of map.
-        style (str): Style of map. Either 'dark' or 'light'.
-        color (str): Color of activity polylines. Either 'blue' or 'red.'
+        style (str): Optional, style of map. Either 'dark' or 'light'.
+        color (str): Optional, color of activity polylines. Either 'blue'
+            or 'red.'
         activity_params (dict): Optional parameters for retrieved
             activities. Example below.
             {
@@ -73,4 +72,5 @@ def create_heatmap(center, style='dark', color='blue', activity_params={}):
     polylines = get_activity_polylines(**activity_params)
     for polyline in polylines:
         add_polyline(strava_map, polyline, color)
+
     return strava_map

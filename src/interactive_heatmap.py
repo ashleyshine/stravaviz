@@ -50,7 +50,7 @@ def add_polyline(folium_map, polyline, color='deepskyblue'):
 
 
 def create_heatmap(center, style='dark', color='blue', activity_params={}):
-    """Create heatmap with activity polylines.
+    """Creates heatmap with activity polylines.
 
     Args:
         center ([lat, long]): Coordinates for center of map.
@@ -58,11 +58,11 @@ def create_heatmap(center, style='dark', color='blue', activity_params={}):
         color (str): Optional, color of activity polylines. Either 'blue'
             or 'red.'
         activity_params (dict): Optional parameters for retrieved
-            activities. Example below.
+            activities. Format below. Default retrieves all activities.
             {
-                'after': '2017-01-01',
-                'before': '2018-01-01',
-                'limit': 100
+                'after': 'YYYY-MM-DD',
+                'before': 'YYYY-MM-DD',
+                'limit': int
             }
 
     Returns:

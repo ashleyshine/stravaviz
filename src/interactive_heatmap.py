@@ -36,7 +36,7 @@ def add_polyline(folium_map, polyline, color='deepskyblue'):
         color (str): Optional, color of polyline.
 
     Returns:
-        folium.Map object.
+        folium.Map: Map with polyline added on.
     """
 
     polyline = folium.PolyLine(
@@ -66,7 +66,7 @@ def create_heatmap(center, style='dark', color='blue', activity_params={}):
             }
 
     Returns:
-        folium.Map object
+        folium.Map: Heatmap with polylines.
     """
     strava_map = create_map(center, style)
     polylines = get_activity_polylines(**activity_params)

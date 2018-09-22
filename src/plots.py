@@ -25,7 +25,7 @@ def create_heatmap(activity_params={}, style='black', color='deepskyblue',
         img_filename (str): Optional, name of image.
 
     Returns:
-        None
+         None
     """
     polylines = get_activity_polylines(**activity_params)
     latitude, longitude = extract_lat_long(polylines)
@@ -48,7 +48,7 @@ def extract_lat_long(polylines):
         polylines (list): List of polylines
 
     Returns:
-        Namedtuple with latitude (list) and longitude (list) points.
+        namedtuple: With latitude (list) and longitude (list) points.
     """
     Lat_Long = namedtuple('Lat_Long', ['latitude', 'longitude'])
     latitude, longitude = [], []
@@ -105,7 +105,7 @@ def facet_plot_dimensions(n_activities):
         n_activities (int): Number of activities to be plotted.
 
     Returns:
-        N (int), where N is the number of rows and columns to be used.
+        int: The number of rows and columns to be used.
     """
     return min(i for i in range(100) if i**2 >= n_activities)
 

@@ -12,7 +12,14 @@ logger.setLevel('ERROR')
 
 
 def create_client():
-    """Creates client to interface with Strava API."""
+    """Creates client to interface with Strava API.
+
+    Args:
+        None
+
+    Returns:
+        stravalib.client.Client: Stravalib client with access to athlete.
+    """
     return stravalib.client.Client(strava_config.ACCESS_TOKEN)
 
 
@@ -27,8 +34,8 @@ def get_activity_polylines(before=None, after=None, limit=None):
         limit (int): Optional. Maximum number of activities to return.
 
     Returns:
-        A list of polylines, where each polyline is a list of points
-        in the form of (lat, long) representing an activity.
+        list: A list of polylines, where each polyline is a list of points
+            in the form of (lat, long) representing an activity.
     """
     client = create_client()
     try:

@@ -122,7 +122,7 @@ def save_figure(fig, filename):
     Returns:
         None
     """
-    img_directory = './img'
+    img_directory = './images'
     if not os.path.isdir(img_directory):
         os.mkdir(img_directory)
 

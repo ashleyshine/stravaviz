@@ -10,6 +10,7 @@ as easy as this.
 ```
 plots.create_heatmap(activities={'after': '2018-06-01', 'before': '2018-09-01'})
 ```
+You can also create [facet plots](https://nbviewer.jupyter.org/github/ashleyshine/stravaviz/blob/master/notebooks/static_plots.ipynb) and [interactive heatmaps](https://nbviewer.jupyter.org/github/ashleyshine/stravaviz/blob/master/notebooks/interactive_heatmaps.ipynb).
 
 ## Getting Started
 
@@ -53,7 +54,7 @@ Creating a map is a simple matter of defining the activities you want to visuali
 * Facet Plots
 * Interactive Heatmaps
 
-See the [notebooks](https://github.com/ashleyshine/stravaviz/tree/master/notebooks) directory for examples.
+See the [notebooks](https://nbviewer.jupyter.org/github/ashleyshine/stravaviz/tree/master/notebooks/) directory for examples.
 
 From the top-level directory of this project:
 

@@ -58,7 +58,7 @@ See the [notebooks](https://nbviewer.jupyter.org/github/ashleyshine/stravaviz/tr
 
 From the top-level directory of this project:
 
-#### Creating Static Heatmaps
+### Creating Static Heatmaps
 
 Visualize activities on a standard heatmap.
 
@@ -79,7 +79,7 @@ plots.create_heatmap(activities, style='white', color='orangered')
 plots.create_heatmap(activities, save=True)
 ```
 
-#### Creating Facet Plots
+### Creating Facet Plots
 
 Visualize each activity individually in a square grid.
 
@@ -90,7 +90,7 @@ activities = {'after': '2015-01-01', 'before': '2019-01-01'}
 plots.create_facet_plot(activities)
 ```
 
-#### Creating Interactive Heatmaps
+### Creating Interactive Heatmaps
 
 Visualize activities on an interactive leaflet.js map using [folium](https://python-visualization.github.io/folium/docs-master/).
 
